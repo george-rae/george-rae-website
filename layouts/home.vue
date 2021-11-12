@@ -1,7 +1,6 @@
 <template>
-  <default-layout>
-    <LoadingScreen />
-  </default-layout>
+  <LoadingScreen v-if="!bodyLoaded" />
+  <DefaultLayout />
 </template>
 
 <script lang="ts">
@@ -12,4 +11,9 @@ export default {
     DefaultLayout,
   },
 };
+</script>
+
+<script setup lang="ts">
+const bodyLoaded = ref(false);
+(async () => setTimeout(() => (bodyLoaded.value = true), 6000))();
 </script>

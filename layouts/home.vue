@@ -1,7 +1,6 @@
 <template>
   <default-layout>
     <LoadingScreen />
-    <main class="page page--home"></main>
   </default-layout>
 </template>
 

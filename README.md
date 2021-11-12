@@ -1,21 +1,22 @@
-# Nuxt 3 Minimal Starter
-
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+## Project Stack
+[Nuxt 3](https://v3.nuxtjs.org), [Vue 3](https://v3.vuejs.org/guide/introduction.html), Vite for packaging
+Typescript
+Sass
 
 ## Setup
 
 Make sure to install the dependencies
 
-```bash
-yarn install
+```npm
+npm i
 ```
 
 ## Development
 
 Start the development server on http://localhost:3000
 
-```bash
-yarn dev
+```npm
+npm run dev
 ```
 
 ## Production
@@ -26,4 +27,4 @@ Build the application for production:
 yarn build
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+Build documentation for Nuxt 3 using `nuxi` can be found [here](https://v3.nuxtjs.org/docs/deployment).

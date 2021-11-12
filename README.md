@@ -1,10 +1,29 @@
-# george-rae-website
+# Nuxt 3 Minimal Starter
 
-Testing out creating my website using Vite for the build/dev environment.
-## Website Stack
-- VueJS
-- TypeScript
-- Sass
+We recommend to look at the [documentation](https://v3.nuxtjs.org).
 
-- Vite
+## Setup
 
+Make sure to install the dependencies
+
+```bash
+yarn install
+```
+
+## Development
+
+Start the development server on http://localhost:3000
+
+```bash
+yarn dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+yarn build
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).

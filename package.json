@@ -1,23 +1,14 @@
 {
-  "name": "george-website",
-  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.2.6",
-    "vue-router": "^3.5.2"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.6.0",
-    "@vue/compiler-sfc": "^3.2.6",
-    "node-sass": "^6.0.1",
-    "sass": "^1.39.0",
-    "typescript": "^4.3.2",
-    "vite": "^2.5.2",
-    "vue-class-component": "^7.2.6",
-    "vue-tsc": "^0.2.2"
+    "nuxt3": "latest",
+    "sass": "^1.43.4",
+    "sass-loader": "^10.2.0",
+    "three": "^0.134.0"
   }
 }

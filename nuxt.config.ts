@@ -2,7 +2,12 @@ import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  routes: {
+    "/": { prerender: true, static: true }
+  },
   ssr: false,
+  target: "static",
+  static: true,
   meta: {
     title: "George MF Rae | Web Developer",
     link: [

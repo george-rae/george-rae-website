@@ -1,0 +1,17 @@
+@keyframes sway {
+  25% {
+    top: 0.25vh;
+  }
+
+  50% {
+    top: 0px;
+  }
+
+  75% {
+    top: -0.25vh;
+  }
+
+  100% {
+    top: 0px;
+  }
+}

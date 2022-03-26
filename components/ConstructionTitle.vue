@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-const letters = generateLetters();
+const letters = generateLetters("Site under construction, come back soon");
 </script>

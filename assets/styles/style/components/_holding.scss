@@ -1,0 +1,131 @@
+.page--construction {
+  position: relative;
+  overflow: hidden;
+
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(45deg, $colour-primary, $colour-secondary);
+  @include flex-y(center, center, nowrap);
+
+  h1 {
+    padding: 50px 35px 0;
+
+    font-size: 5.5vw;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+
+    @media screen and (min-width: 1440px) {
+      font-size: 75px;
+    }
+
+    span {
+      position: relative;
+
+      animation: sway 750ms linear infinite;
+    }
+
+    @for $i from 1 to 40 {
+      span:nth-child(#{$i}) {
+        animation-delay: (#{$i * 0.05s});
+      }
+    }
+  }
+
+  .spanner-hit {
+    position: relative;
+    &::after {
+      content: "";
+      @include position(unset, -5px, -25px);
+
+      height: 25px;
+
+      background: rgba(#000, 0.2);
+      filter: blur(15px);
+      transform: translateZ(-12.5px) translateX(0px) scale(1);
+      transform-origin: 50%;
+      animation: shadow 2500ms ease-in-out infinite;
+    }
+  }
+
+  svg {
+    fill: #fff;
+    stroke: #fff;
+  }
+
+  #spanner {
+    position: relative;
+
+    height: 130px;
+    width: auto;
+
+    animation: spannerHit 2500ms ease-in-out infinite;
+
+    path {
+      filter: drop-shadow(-5px 5px 5px rgb($colour-tertiary, 0.7));
+    }
+  }
+
+  #helmet {
+    position: relative;
+    bottom: -10px;
+    right: 35px;
+
+    height: 110px;
+    width: auto;
+    fill: #fff;
+
+    animation: helmetHit 2500ms ease-in-out infinite;
+
+    path,
+    rect {
+      filter: drop-shadow(-2px 2px 5px rgb($colour-tertiary, 0.7));
+    }
+  }
+}
+
+@keyframes shadow {
+  25% {
+    transform: translateZ(-12.5px) translateX(0px) scale(0.95);
+  }
+  50% {
+    transform: translateZ(-12.5px) translateX(10px);
+  }
+
+  100% {
+    transform: translateZ(-12.5px) translateX(0px);
+  }
+}
+
+@keyframes spannerHit {
+  25% {
+    transform: rotate(-60deg);
+  }
+  60% {
+    transform: rotate(20deg);
+  }
+  80% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes helmetHit {
+  25% {
+    transform: translateY(-5px) rotateX(0deg);
+  }
+  40% {
+    transform: translateY(-5px) rotateX(0deg);
+  }
+  60% {
+    transform: translateY(10px) skewY(-5deg) rotateX(-25deg);
+  }
+  80% {
+    transform: translateY(0) rotateX(0);
+  }
+  100% {
+    transform: translateY(0) rotateX(0);
+  }
+}

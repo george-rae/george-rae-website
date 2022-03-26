@@ -1,5 +1,5 @@
 <template>
-  <LoadingScreen v-if="!bodyLoaded" />
+  <LoadingScreen />
   <DefaultLayout />
 </template>
 

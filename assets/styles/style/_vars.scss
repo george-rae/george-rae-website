@@ -1,8 +1,74 @@
-body {
-  position: relative;
+@function values($val) {
+  $top: 0;
+  $right: 0;
+  $bottom: 0;
+  $left: 0;
 
-  min-height: 100vh;
-  min-width: 100vw;
-  margin: 0;
-  padding: 0;
+  @if length($val) > 0 {
+    $all: nth($val, 1);
+    $top: $all;
+    $right: $all;
+    $bottom: $all;
+    $left: $all;
+  }
+  @if length($val) > 1 {
+    $left: nth($val, 2);
+    $right: nth($val, 2);
+  }
+  @if length($val) > 2 {
+    $bottom: nth($val, 3);
+  }
+  @if length($val) > 3 {
+    $left: nth($val, 4);
+  }
+
+  @return (top: $top, right: $right, bottom: $bottom, left: $left);
 }
+
+@mixin position($positions...) {
+  $positions: values($positions);
+
+  position: absolute;
+  top: map-get($positions, "top");
+  right: map-get($positions, "right");
+  bottom: map-get($positions, "bottom");
+  left: map-get($positions, "left");
+}
+
+@function tint($colour, $percentage) {
+  @return mix($colour, #fff, $percentage);
+}
+
+@mixin flex-x($justify: false, $align: false, $wrap: false) {
+  display: flex;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin flex-y($justify: false, $align: false, $wrap: false) {
+  @include flex-x($justify, $align, $wrap);
+  flex-direction: column;
+}
+
+@mixin absolute-fill() {
+  @include position(0);
+}
+
+@mixin circle($dimensions) {
+  height: $dimensions;
+  width: $dimensions;
+
+  border-radius: 50%;
+}
+
+$colour-background: #f2f2f2;
+$colour-primary: #3f5efb;
+$colour-secondary: #fc466b;
+$colour-tertiary: #77dd77;

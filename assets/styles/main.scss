@@ -4,9 +4,13 @@
 // GLOBALS
 @import "style/vars";
 @import "style/typography";
+@import "style/default";
+@import "style/keyframes";
 
 // COMPONENTS
 @import "style/components/loading";
+@import "style/components/nav";
+@import "style/components/holding";
 
 // PAGES
 @import "style/pages/home";

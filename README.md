@@ -23,8 +23,8 @@ npm run dev
 
 Build the application for production:
 
-```bash
-yarn build
+```npm
+npm run build
 ```
 
 Build documentation for Nuxt 3 using `nuxi` can be found [here](https://v3.nuxtjs.org/docs/deployment).

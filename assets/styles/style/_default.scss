@@ -5,4 +5,16 @@ body {
   min-width: 100vw;
   margin: 0;
   padding: 0;
+
+  border-image: linear-gradient(to right, $colour-primary, $colour-secondary) 4;
+  border-width: 4px 0 0 0;
+  border-style: solid;
+
+  overflow: hidden;
+  transition: border-image 0.36s ease-in-out;
+
+  &.menu-active {
+    border-image: linear-gradient(to right, $colour-primary, $colour-tertiary) 4;
+    transition: border-image 0.36s ease-in-out;
+  }
 }

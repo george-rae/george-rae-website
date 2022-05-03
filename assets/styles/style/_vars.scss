@@ -1,3 +1,10 @@
+// UTLITIES
+.max-width {
+  width: clamp(300px, 100%, 1280px);
+}
+
+// FUNCTIONS/MIXINS
+
 @function values($val) {
   $top: 0;
   $right: 0;
@@ -72,3 +79,5 @@ $colour-background: #f2f2f2;
 $colour-primary: #3f5efb;
 $colour-secondary: #fc466b;
 $colour-tertiary: #77dd77;
+
+$header-padding: 25px;

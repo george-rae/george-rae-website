@@ -1,5 +1,210 @@
-nav {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+header {
+  position: relative;
+  @include flex-x(space-between, center, wrap);
+
+  padding: $header-padding;
+
+  h1 {
+    display: inline-block;
+
+    font-size: 75px;
+    font-weight: 700;
+    text-shadow: 10px 10px 10px rgba(100, 100, 100, 0.4);
+    color: transparent;
+
+    background: linear-gradient(to right, $colour-primary, $colour-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    filter: contrast(200%);
+    opacity: 0;
+
+    animation: fadeIn 350ms linear 1 forwards 100ms;
+    transition: background 0.46s ease-in-out;
+
+    user-select: none;
+  }
+
+  .menu-button {
+    position: relative;
+
+    @include flex-y(space-between, flex-end);
+    height: 32px;
+    width: 40px;
+
+    opacity: 0;
+    animation: fadeIn 350ms linear 1 forwards 200ms;
+    cursor: pointer;
+    z-index: 25;
+
+    .menu-button__bar {
+      position: absolute;
+      right: 0;
+      top: 16px;
+
+      width: 32px;
+      height: 4px;
+      max-width: 40px;
+
+      border-radius: 5px;
+      opacity: 1;
+      background: linear-gradient(to left, $colour-primary, $colour-secondary);
+
+      pointer-events: none;
+      transition: all 0.56s ease-in-out;
+
+      &--top {
+        width: 24px;
+        top: 4px;
+      }
+
+      &--bottom {
+        width: 100%;
+        top: 28px;
+      }
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: -35vw;
+
+    @include flex-y(center, center);
+    gap: 20px;
+
+    height: 100vh;
+    width: 30vw;
+
+    box-shadow: 0px -10px 15px 10px rgba(100, 100, 100, 0.4);
+    background: $colour-background;
+
+    transition: all 0.36s ease-in-out;
+
+    a {
+      font-size: 25px;
+      font-weight: bold;
+      color: transparent;
+      text-decoration: none;
+
+      background: linear-gradient(to left, $colour-primary, $colour-tertiary);
+      background-clip: text;
+
+      opacity: 0;
+      transform: translateX(20px);
+    }
+  }
+
+  .menu-image {
+    position: absolute;
+    left: -70vw;
+    top: 0;
+
+    @include flex-y(flex-end);
+    height: 100vh;
+    width: 70vw;
+    padding: $header-padding;
+    z-index: 20;
+
+    overflow: hidden;
+
+    transition: left 0.36s ease-in-out;
+
+    &::after {
+      content: "";
+      @include absolute-fill;
+
+      height: 100%;
+      width: 100%;
+
+      background-position: 0 0;
+      background-size: 50px 50px;
+      background-image: linear-gradient(
+          to right,
+          #f0f 1px,
+          transparent 1px,
+          transparent 3px,
+          transparent 5px,
+          #0ff 6px,
+          transparent 6px,
+          transparent 46px,
+          #ff0 47px,
+          transparent 47px
+        ),
+        linear-gradient(to bottom, #333 1px, transparent 1px);
+      filter: blur(1px);
+
+      animation: sideImageFlow 2s linear infinite both;
+    }
+  }
+
+  // MENU ACTIVATED
+  &.menu-active {
+    h1 {
+      background: linear-gradient(to right, $colour-primary, $colour-tertiary);
+      background-clip: text;
+
+      transition: background 0.36s ease-in-out;
+    }
+
+    .menu {
+      right: 0;
+
+      transition: all 0.36s ease-in-out;
+      a {
+        animation: fadeIn 250ms ease-in-out 1 forwards;
+        animation-delay: 400ms;
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            animation-delay: calc(400ms + (250ms * $i));
+          }
+        }
+      }
+    }
+
+    .menu-image {
+      left: 0;
+
+      transition: all 0.36s ease-in-out;
+    }
+
+    .menu-button > .menu-button__bar {
+      top: 14px;
+      right: 4px;
+
+      width: 100%;
+      max-width: 32px;
+
+      background: linear-gradient(to left, $colour-primary, $colour-tertiary);
+
+      &--burger {
+        opacity: 0;
+      }
+
+      &--top {
+        transform: rotate(225deg);
+      }
+
+      &--bottom {
+        transform: rotate(-225deg);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes sideImageFlow {
+  to {
+    background-position: 0 -50px;
+  }
 }

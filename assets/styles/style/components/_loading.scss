@@ -28,6 +28,7 @@
       margin-right: 10px;
 
       font-size: 50px;
+      user-select: none;
 
       animation: sway 750ms linear infinite;
 
@@ -141,7 +142,7 @@
   }
   to {
     width: 296px;
-    background: $colour-primary;
+    background: $colour-tertiary;
   }
 }
 
@@ -150,11 +151,11 @@
     transform: scale(1);
   }
   50% {
-    background: $colour-primary;
+    background: $colour-tertiary;
     transform: scale(1.1);
   }
   100% {
-    background: $colour-primary;
+    background: $colour-tertiary;
     transform: scale(1);
   }
 }
@@ -172,11 +173,11 @@
     transform: scale(1);
   }
   50% {
-    color: $colour-primary;
+    color: $colour-tertiary;
     transform: scale(1.1);
   }
   100% {
-    color: $colour-primary;
+    color: $colour-tertiary;
     transform: scale(1);
   }
 }

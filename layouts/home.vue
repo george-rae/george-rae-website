@@ -15,5 +15,5 @@ export default {
 
 <script setup lang="ts">
 const bodyLoaded = ref(false);
-(async () => setTimeout(() => (bodyLoaded.value = true), 6000))();
+(() => setTimeout(() => (bodyLoaded.value = true), 6000))();
 </script>

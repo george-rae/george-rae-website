@@ -17,9 +17,10 @@ header {
     -webkit-background-clip: text;
     filter: contrast(200%);
     opacity: 0;
+    visibility: visible;
 
     animation: fadeIn 350ms linear 1 forwards 100ms;
-    transition: background 0.46s ease-in-out;
+    transition: visibility 0.46s ease-in-out;
 
     user-select: none;
   }
@@ -140,10 +141,9 @@ header {
   // MENU ACTIVATED
   &.menu-active {
     h1 {
-      background: linear-gradient(to right, $colour-primary, $colour-tertiary);
-      background-clip: text;
+      visibility: hidden;
 
-      transition: background 0.36s ease-in-out;
+      transition: visibility 0.36s ease-in-out;
     }
 
     .menu {
